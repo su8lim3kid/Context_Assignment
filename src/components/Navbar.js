@@ -1,9 +1,12 @@
-import React from "react";
-import { NavLink, } from "react-router-dom";
-import { Menu, } from "semantic-ui-react";
+import React from "react"
+import { NavLink, } from "react-router-dom"
+import { Menu, } from "semantic-ui-react"
+import { AccountConsumer, } from "../providers/UserProvider"
 
 const Navbar = () => (
-  <Menu>
+<AccountConsumer>
+  { value => (
+<Menu>
     <NavLink to="/">
       <Menu.Item>
         Home
@@ -11,11 +14,14 @@ const Navbar = () => (
     </NavLink>
     <NavLink to="/user/profile">
       <Menu.Item>
-        {/* Will be replaced with the actual username */}
-        username
+      { value.username }
+       
       </Menu.Item>
     </NavLink>
   </Menu> 
+  )}
+</AccountConsumer>
+
 )
 
 export default Navbar;
