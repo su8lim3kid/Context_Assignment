@@ -1,18 +1,21 @@
 import React from "react";
 
-// Set Up The Initial Context
+
 const UserContext = React.createContext();
 
-// Create an exportable consumer that can be injected into components
-export const AccountConsumer = UserContext.Consumer;
 
-// Create the provider using a traditional React.Component class
+export const AccountConsumer = UserContext.Consumer;
 class UserProvider extends React.Component {
   state = {
     username: "Dude",
     dateJoined: "12/19/19",
     membershipLevel: "Gold",
+    updateUser: (value) => this.updateUser(value),
   };
+
+  updateUser = (value) =>{
+    this.setState({ ...value, })
+  }
     
   render() {
     return (
@@ -22,5 +25,6 @@ class UserProvider extends React.Component {
     )
   }
 }
+
 
 export default UserProvider;
