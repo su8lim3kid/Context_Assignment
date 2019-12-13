@@ -1,6 +1,7 @@
 import React, {} from "react";
 import { Card, } from "semantic-ui-react";
 import { UserConsumer, } from "../providers/UserProvider";
+import styled from 'styled-components'
 
 
 
@@ -9,7 +10,7 @@ const User = () => (
 <UserConsumer>
   {value => (
     
-      <Card>
+      <Card as={Transparent}>
         <Card.Content>
           <Card.Header>{ value.username }</Card.Header>
           <Card.Meta>
@@ -27,6 +28,9 @@ const User = () => (
       )}
       </UserConsumer>
   )
+  const Transparent = styled.div`
+  background: transparent !important;
+`;
 
 
 

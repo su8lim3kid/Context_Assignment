@@ -1,13 +1,14 @@
 import React from 'react';
 import Navbar from "./components/Navbar";
 import UserProfile from "./components/UserProfile";
-import { Container, } from "semantic-ui-react";
+import { Container,Segment } from "semantic-ui-react";
 import { Switch, Route, } from "react-router-dom";
 import styled from 'styled-components'
 const App = () => (
   <AppContainer>
+    <Segment as={Transparent}>
     <Navbar />
-    <Container>
+    <Container >
       <Switch>
         <Route
           exact
@@ -20,7 +21,8 @@ const App = () => (
           render={ () => <UserProfile /> }
         />
       </Switch>
-    </Container>
+    </Container >
+    </Segment>
   </AppContainer>
 )
 
@@ -28,6 +30,9 @@ const AppContainer = styled.div`
   background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
   height: 100vh;
   width:100;
+`;
+const Transparent = styled.div`
+  background: transparent !important;
 `;
 
 export default App;
