@@ -4,12 +4,13 @@ import React from "react";
 const UserContext = React.createContext();
 
 
-export const AccountConsumer = UserContext.Consumer;
+export const UserConsumer = UserContext.Consumer;
 class UserProvider extends React.Component {
   state = {
-    username: "Dude",
-    dateJoined: "12/19/19",
-    membershipLevel: "Gold",
+    username: "Nikola Tesla",
+    dateJoined: "04/25/1891",
+    skills: "Developer of Alternating Current, Mad Scientist!",
+    membershipLevel: "Platinum",
     updateUser: (value) => this.updateUser(value),
   };
 

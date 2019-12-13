@@ -1,12 +1,12 @@
-import React, {useContext} from "react";
+import React, {} from "react";
 import { Card, } from "semantic-ui-react";
-import { AccountConsumer, } from "../providers/UserProvider";
+import { UserConsumer, } from "../providers/UserProvider";
 
 
 
 const User = () => (
  
-<AccountConsumer>
+<UserConsumer>
   {value => (
     
       <Card>
@@ -17,12 +17,15 @@ const User = () => (
           </Card.Meta>
         </Card.Content>
         <Card.Content>
+          <p>Skills: { value.skills }</p>
+        </Card.Content>
+        <Card.Content>
           <p>Membership Level: { value.membershipLevel }</p>
         </Card.Content>
       </Card>
 
       )}
-      </AccountConsumer>
+      </UserConsumer>
   )
 
 

@@ -1,10 +1,11 @@
 import React from "react"
 import { Form, } from "semantic-ui-react"
-import { AccountConsumer, } from "../providers/UserProvider"
+import { UserConsumer, } from "../providers/UserProvider"
 
 class UserForm extends React.Component {
   state = { 
-    username: this.props.username, 
+    username: this.props.username,
+    skills: this.props.skills,
     membershipLevel: this.props.membershipLevel, 
   }
   
@@ -17,7 +18,7 @@ class UserForm extends React.Component {
   }
   
   render() {
-    const { username, membershipLevel, } = this.state;
+    const { username, skills, membershipLevel, } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Input
@@ -25,6 +26,13 @@ class UserForm extends React.Component {
           type="text"
           name="username"
           value={username}
+          onChange={this.handleChange}
+        />
+        <Form.Input
+          label="Skills"
+          type="text"
+          name="skills"
+          value={skills}
           onChange={this.handleChange}
         />
         <Form.Select
@@ -41,16 +49,17 @@ class UserForm extends React.Component {
 }
 const ConnectedUserForm = (props) => {
   return (
-    <AccountConsumer>
+    <UserConsumer>
       { value => (
         <UserForm 
           { ...props }
           username={value.username}
           membershipLevel={value.membershipLevel}
+          skills={value.skills}
           updateUser={value.updateUser}
         />
       )}
-    </AccountConsumer>
+    </UserConsumer>
   )
 }
 const membershipOptions = [
